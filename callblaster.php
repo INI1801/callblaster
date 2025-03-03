@@ -36,7 +36,7 @@ $query = "update logs set status='Connected' where autoID='$dbid'";
 $result = mysql_query($query) or die("Database Error");
 
 $keys="Nil";
-$count=0;
+$count=1;
 do
 {
 	if($count>2)break;

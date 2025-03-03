@@ -60,7 +60,7 @@ if($_POST['action']=="Upload and Initiate Calls")
 		move_uploaded_file($_FILES['csvFile']['tmp_name'],$dest);
 		
 		$msg = "Recieved File $dest at ".date("r",time());
-		file_put_contents("logs/uploads.txt",$msg,FILE_APPEND);
+		file_put_contents($basepath."logs/uploads.txt",$msg,FILE_APPEND);
 
 		$command = "php ".$basepath."asyncCall.php $dest";
 		//echo $command;
@@ -100,11 +100,11 @@ if($_POST['action']=="Upload and Initiate Calls")
 			$phone = $number;
 			$phone=substr($phone,0,10);
 			$callFile = "Channel: local/$phone@from-internal\n";
-			$callFile .= "MaxRetries: 2\n";
+			$callFile .= "MaxRetries: 0\n";
 			$callFile .= "WaitTime: 30\n";
 			$callFile .= "CallerID: $caller_id\n";
 			$callFile .= "Context: callblaster\n";
-			$callFile .= "Extension: 333\n";
+			$callFile .= "Extension: 110\n";
 			$callFile .= "Set: userAudio=$audio\n";
 			$callFile .= "Set: userNumber=$number\n";
 			$callFile .= "Set: dbid=$id\n";

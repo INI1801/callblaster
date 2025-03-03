@@ -63,13 +63,13 @@ if(file_exists($argv[1]))
 		$result = mysql_query($query) or die("Database Error");
 		$id = mysql_insert_id();
 		$phone = $number;
-		$phone=substr($phone,0,10);
+		$phone=substr($phone,0,13);
 		$callFile = "Channel: local/$phone@from-internal\n";
-		$callFile .= "MaxRetries: 2\n";
+		$callFile .= "MaxRetries: 0\n";
 		$callFile .= "WaitTime: 30\n";
 		$callFile .= "CallerID: $caller_id\n";
 		$callFile .= "Context: callblaster\n";
-		$callFile .= "Extension: 333\n";
+		$callFile .= "Extension: 110\n";
 		$callFile .= "Set: userAudio=$audio\n";
 		$callFile .= "Set: userNumber=$number\n";
 		$callFile .= "Set: dbid=$id\n";
