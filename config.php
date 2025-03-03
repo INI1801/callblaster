@@ -19,7 +19,7 @@ $db_pass="amp109";
 
 
 //caller id and name
-$caller_id="Nethram<4088271111>";
+$caller_id="callblaster<110>";
 //..............................................
 
 

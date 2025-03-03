@@ -161,3 +161,54 @@ Screen shots
 
 
 
+# additional memo #
+
+yum install git  " установить гит на сервер если его нету " 
+
+
+cd /var/www/html/ идем в папку вэбрута
+
+
+git clone https://github.com/INI1801/callblaster.git "скопировали  репазиторий"
+
+
+cd callblaster   идем в папку проекта
+
+
+делаем папкам права 777
+
+
+chmod 777 audio
+
+
+chmod 777 logs
+
+
+chmod 777 tmp
+
+
+chmod 777 files
+
+
+chmod 777 callFiles  
+
+
+по необходимости меняем владельца файлов/папок 
+
+chown asterisk:asterisk /var/www/html/callblaster/*
+
+
+редактируем файл config.php со своими параметрами доступа к базе (лежат в /etc/freepbx.conf или  /etc/asterisk/freepbx.conf )
+
+дать права на запись в директорию.  
+
+chmod 777 /var/spool/asterisk
+
+Добавим в extensions_custom.conf
+
+
+;callblaster context
+
+[callblaster]  
+exten => 110,1,AGI(/var/www/html/callblaster/callblaster.php)
+
