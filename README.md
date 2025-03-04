@@ -197,6 +197,9 @@ chmod 777 callFiles
 
 chown asterisk:asterisk /var/www/html/callblaster/*
 
+chown asterisk:asterisk /var/www/html/callblaster/
+
+Проверить владельца и если нужно изменить на папки callblaster, audio, logs, и тд.
 
 редактируем файл config.php со своими параметрами доступа к базе (лежат в /etc/freepbx.conf или  /etc/asterisk/freepbx.conf )
 
@@ -207,8 +210,13 @@ chmod 777 /var/spool/asterisk
 Добавим в extensions_custom.conf
 
 
-;callblaster context
+;callbaster context
 
-[callblaster]  
-exten => 110,1,AGI(/var/www/html/callblaster/callblaster.php)
+[callbaster]  
+exten => 110,1,AGI(/var/www/html/callblaster/callbaster.php)
 
+
+
+Даем права на выполниние скрипта PHP 
+
+chmod 777 /var/www/html/callblaster/callblaster.php  
