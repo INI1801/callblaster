@@ -36,7 +36,7 @@ $query = "update logs set status='Connected' where autoID='$dbid'";
 $result = mysql_query($query) or die("Database Error");
 
 $keys="Nil";
-$count=1;
+$count=1;  /* Change audio repeat times  Изменить кол-во повторов записи ) */
 do
 {
 	if($count>2)break;
